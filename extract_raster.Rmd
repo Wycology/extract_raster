@@ -15,7 +15,6 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = TRUE)
 knitr::write_bib(c(.packages(),
                    'base',
-                   'tidyverse',
                    'raster',
                    'stars',
                    'rgdal'), 'bib/packages.bib')
@@ -34,6 +33,13 @@ In this short article, I demonstrate results of extracting raster values with po
 
 # Loading the libraries
 
+To do this, I will need several libraries including:
+
+a. base
+b. raster
+c. stars
+d. rgdal
+
 ```{r load_libraries, include=FALSE}
 library(rgdal)
 library(raster)
@@ -41,6 +47,8 @@ library(stars)
 
 ```
 # Loading the datasets
+
+I use one raster layer and seven different polygon layers as stated in the introduction section..
 
 ```{r load_data, include=FALSE}
 raster_data <- raster('data/raster.tif')
@@ -62,8 +70,10 @@ plot(stars_data, text_values = TRUE)
 
 # Visualizing the 'unique' polygons on the raster
 
+The seven unique polygons are overlayed on the raster image below to show their uniqueness in spatial analyses environment.
+
 ```{r warning = FALSE, echo=FALSE}
-plot(raster_data, text_values = TRUE)
+plot(raster_data)
 plot(polygon, add = TRUE)
 plot(polygon2, add = TRUE)
 plot(polygon3, add = TRUE)

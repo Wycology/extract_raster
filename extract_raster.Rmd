@@ -1,0 +1,78 @@
+---
+title: "<center>Extracting raster values with 'unique' polygons</center>"
+author: "<center>Wyclife Agumba Oluoch (wyclifeoluoch@gmail.com)</center>"
+date: "<center>`r Sys.time()`</center>"
+bibliography: bib/packages.bib
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::write_bib(c(.packages(),
+                   'base',
+                   'tidyverse',
+                   'raster',
+                   'stars',
+                   'rgdal'), 'bib/packages.bib')
+```
+# Introduction
+
+In this short article, I demonstrate results of extracting raster values with polygons which:
+
+1. Touches several pixels but not any one completely covered.
+2. Completely inside a single pixel but not covering centroid of the pixel.
+3. Completely outside the raster pixels bounds.
+4. Partially touches a pixel of the raster
+5. Covers most part of a pixel but not centroid.
+6. Covers least part of a pixel and centroid
+7.
+
+# Loading the libraries
+
+```{r load_libraries, include=FALSE}
+library(rgdal)
+library(raster)
+library(stars)
+
+```
+# Loading the datasets
+
+```{r load_data, include=FALSE}
+raster_data <- raster('data/raster.tif')
+polygon <- readOGR('data/polygon.shp')
+polygon2 <- readOGR('data/polygon2.shp')
+polygon3 <- readOGR('data/polygon3.shp')
+polygon4 <- readOGR('data/polygon4.shp')
+polygon5 <- readOGR('data/polygon5.shp')
+polygon6 <- readOGR('data/polygon6.shp')
+polygon7 <- readOGR('data/polygon7.shp')
+```
+
+# Visualize pixel values
+
+```{r pixel_values}
+stars_data <- read_stars('data/raster.tif')
+plot(stars_data, text_values = TRUE)
+```
+
+# Visualizing the 'unique' polygons on the raster
+
+```{r warning = FALSE, echo=FALSE}
+plot(raster_data, text_values = TRUE)
+plot(polygon, add = TRUE)
+plot(polygon2, add = TRUE)
+plot(polygon3, add = TRUE)
+plot(polygon4, add = TRUE)
+plot(polygon5, add = TRUE)
+plot(polygon6, add = TRUE)
+plot(polygon7, add = TRUE)
+```
+
+
+# References
+

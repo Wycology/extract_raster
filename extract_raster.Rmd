@@ -33,7 +33,7 @@ In this article, I demonstrate results of extracting raster values with polygons
 
 # Loading the libraries
 
-To do this, I will need several libraries including:
+To do this, I will use several `R` libraries including:
 
 a. base
 b. raster

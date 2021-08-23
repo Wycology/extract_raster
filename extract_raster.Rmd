@@ -23,7 +23,7 @@ knitr::write_bib(c(.packages(),
 
 In this article, I demonstrate results of extracting raster values with polygons which:
 
-1. Touches several pixels but not any one completely covered.
+1. Touch several pixels but not any one completely covered.
 2. Completely inside a single pixel but not covering centroid of the pixel.
 3. Completely outside the raster pixels bounds.
 4. Partially touches a pixel of the raster

@@ -25,7 +25,7 @@ In this article, I demonstrate results of extracting raster values with polygons
 
 1. Touch several pixels but none completely covered.
 2. Completely inside a single pixel but not covering centroid of the pixel.
-3. Completely outside the raster pixels bounds.
+3. Completely outside the raster pixel bounds.
 4. Partially touches a pixel of the raster
 5. Covers most part of a pixel but not centroid.
 6. Covers least part of a pixel and centroid
